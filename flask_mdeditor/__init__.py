@@ -2,7 +2,7 @@
     flask_mdeditor
 
     :author: ZiscLi <506141737@qq.com>
-    :copyright: (c) 2020 by Grey Li.
+    :copyright: (c) 2020 by Zisc Li
     :license: MIT, see LICENSE for more details.
 """
 from flask import current_app, Markup, request, Blueprint, url_for, render_template_string, render_template, request
