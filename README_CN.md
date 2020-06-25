@@ -1,5 +1,6 @@
 # Flask-mdeditor
 [![ENV](https://img.shields.io/badge/release-v0.1-blue.svg)](https://github.com/pylixm/django-mdeditor)
+[![ENV](https://img.shields.io/badge/pypi-v0.1-blue.svg)](https://pypi.org/project/Flask-MDEditor/)
 [![ENV](https://img.shields.io/badge/中文-v0.1-blue.svg)](./README_CN.md)
 [![ENV](https://img.shields.io/badge/python-3.7x-green.svg)]()
 [![ENV](https://img.shields.io/badge/flask-1.0+-green.svg)]()
