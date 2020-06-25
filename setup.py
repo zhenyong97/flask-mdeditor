@@ -18,7 +18,7 @@ setup(
     description='A simple FLASK app to edit markdown text.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/callmehero/flask-mdeditor.git',
+    url='https://github.com/callmehero/flask-mdeditor',
     author='ZiscLi',
     author_email='lzyong2019@gmail.com',
     install_requires=[
