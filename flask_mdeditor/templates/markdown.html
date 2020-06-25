@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="{{ url_for('mdeditor.static', filename='mdeditor/css/editormd.css', _external=True) }}">
+<style type="text/css">
+    .wmd-wrapper  ul {
+        margin-left: 0px !important;
+    }
+    .wmd-wrapper ul li{
+        list-style: disc !important;
+    }
+    .wmd-wrapper ul ul li{
+        list-style: circle !important;
+    }
+    .wmd-wrapper h1,
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4,
+    .wmd-wrapper h5,
+    .wmd-wrapper h6 {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4{
+        padding: 0px !important;
+    }
+    .wmd-wrapper h5{
+        letter-spacing: 0px !important;
+        text-transform: none !important;
+        font-size: 1em !important;
+    }
+    .wmd-wrapper h6{
+        font-size: 1em !important;
+        color: #777 !important;
+    }
+</style>
+
+<div class="wmd-wrapper"  id="wmd-wrapper">
+  <textarea {{ final_attrs|safe }}>{{ value }}</textarea>
+</div>
+
+{% if mdeditor_config.language == 'en' %}
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/languages/en.js') }}"></script>
+{% elif mdeditor_config.language == 'de' %}
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/languages/de.js') }}"></script>
+{% endif %}
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/jquery.min.js', _external=True) }}"></script>
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/editormd.min.js', _external=True) }}"></script>
+<script type="text/javascript">
+    $(function () {
+        editormd("wmd-wrapper", {
+            watch: {{ mdeditor_config.watch|lower }}, // 关闭实时预览
+            lineNumbers: {{ mdeditor_config.lineNumbers|lower }},
+            lineWrapping: {{ mdeditor_config.lineWrapping|lower }},
+            width: "{{ mdeditor_config.width }}",
+            height: {{ mdeditor_config.height }},
+            placeholder: '{{ mdeditor_config.placeholder }}',
+            // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
+            onfullscreen : function() {
+                this.editor.css("border-radius", 0).css("z-index", 9999);
+            },
+            onfullscreenExit : function() {
+                this.editor.css({
+                    zIndex : 10,
+                    border : "1px solid rgb(221,221,221)"
+                })
+            },
+            syncScrolling: "single",
+            path: "{{ url_for('mdeditor.static', filename='mdeditor/js/lib/') }}",
+            // theme
+            theme : "{{ mdeditor_config.theme|safe }}",
+            previewTheme : "{{ mdeditor_config.preview_theme|safe }}",
+            editorTheme : "{{ mdeditor_config.editor_theme }}",
+
+            saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
+            toolbarAutoFixed: {{ mdeditor_config.toolbar_autofixed|lower }},
+            searchReplace: {{ mdeditor_config.search_replace|lower }},
+            emoji: {{ mdeditor_config.emoji|lower }},
+            tex: {{ mdeditor_config.tex|lower }},
+            taskList: {{ mdeditor_config.task_list|lower }},
+            flowChart: {{ mdeditor_config.flow_chart|lower }},
+            sequenceDiagram: {{ mdeditor_config.sequence|lower }},
+
+            // image upload
+            imageUpload: true,
+            imageFormats: {{ mdeditor_config.upload_image_formats|safe }},
+            imageUploadURL: "{{ url_for('mdeditor.__uploads') }}",
+            toolbarIcons: function () {
+                return {{ mdeditor_config.toolbar|safe }}
+            },
+            onload: function () {
+                console.log('onload', this);
+                //this.fullscreen();
+                //this.unwatch();
+                //this.watch().fullscreen();
+
+                //this.setMarkdown("#PHP");
+                //this.width("100%");
+                //this.height(480);
+                //this.resize("100%", 640);
+            }
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        let locked_text = $('.editormd-markdown-textarea');
+        locked_text.attr('name', "{{ name }}");
+        locked_text.attr('id', "{{ id }}");
+    })
+</script>
