@@ -7,7 +7,7 @@ class MDEditor(TextArea):
 
     def __call__(self, field, **kwargs):
         editor = current_app.extensions['mdeditor']
-        mapping_value = {"id": field.id, "name": field.name}
+        mapping_value = {"id": field.id, "name": field.name, "value":field.data}
         return editor.load(**mapping_value)
         
 
