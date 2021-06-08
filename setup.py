@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='Flask-MDEditor',
-    version='0.1.2',
+    version='0.1.4',
     packages=['flask_mdeditor'],
     license='MIT',
     description='MDEditor integration for Flask',
