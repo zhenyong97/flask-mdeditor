@@ -38,13 +38,13 @@
   <textarea {{ final_attrs|safe }}>{{ value }}</textarea>
 </div>
 
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/jquery.min.js', _external=True) }}"></script>
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/editormd.min.js', _external=True) }}"></script>
 {% if mdeditor_config.language == 'en' %}
 <script src="{{ url_for('mdeditor.static', filename='mdeditor/languages/en.js') }}"></script>
 {% elif mdeditor_config.language == 'de' %}
 <script src="{{ url_for('mdeditor.static', filename='mdeditor/languages/de.js') }}"></script>
 {% endif %}
-<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/jquery.min.js', _external=True) }}"></script>
-<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/editormd.min.js', _external=True) }}"></script>
 <script type="text/javascript">
     $(function () {
         editormd("wmd-wrapper", {
