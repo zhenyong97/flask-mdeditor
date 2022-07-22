@@ -50,7 +50,7 @@ class _MDEditor():
             'sequence': True,
             'language': current_app.config.get("MDEDITOR_LANGUAGE",'zh'),  # zh / en
             'watch': True,  # Live preview
-            'lineWrapping': False,  # lineWrapping
+            'lineWrapping': current_app.config.get('MDEDITOR_WRAPPING','False'),  # lineWrapping
             'lineNumbers': False  # lineNumbers
         }
         return DEFAULT_CONFIG
