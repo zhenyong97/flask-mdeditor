@@ -97,7 +97,7 @@ The more configuration options available are listed below:
 |MDEDITOR_THEME|default|editor main theme|×|dark / default|
 |MDEDITOR_PREVIEW_THEME|default|preview area theme|×| default / dark
 |MDEDITOR_EDITOR_THEME|default|edit area theme|×| pastel-on-dark / default
-|MDEDITOR_LANGUAGE|zh|editor language|×|zh / en
+|MDEDITOR_LANGUAGE|en|editor language|×|zh / en
 
 ## TODO
 * Unit Testing

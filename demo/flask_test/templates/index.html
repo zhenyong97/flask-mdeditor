@@ -17,6 +17,13 @@
             </ul>
         {% endif %}
     {% endwith %}
+    {% if articles %}
+        <ol>
+        {% for article in articles %}
+            <li><a href="{{ url_for('get_article', aritlce_id=article.id) }}">article.title - {{ article.id }}</a></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
 
 </body>
 </html>

@@ -23,7 +23,8 @@ class PostForm(FlaskForm):
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    articles = Article.query.all()
+    return render_template('index.html', articles=articles)
 
 @app.route('/post', methods=['GET', 'POST'])
 def post():
@@ -59,14 +60,13 @@ def save():
 @app.route('/get/<int:aritlce_id>')
 def get_article(aritlce_id):
     article = Article.query.get_or_404(aritlce_id)
-    mk = mistune.Markdown()
-    output = mk(article.content)
+    output = mistune.html(article.content)
     return render_template('detail.html', article=article, content=output)
 
 
 @app.cli.command()
 def initdb():
-    """创建数据库表"""
+    """init testdb"""
     import models
     db.create_all()
 
