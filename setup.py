@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='Flask-MDEditor',
-    version='0.1.4',
+    version='0.1.5',
     packages=['flask_mdeditor'],
     license='MIT',
     description='MDEditor integration for Flask',
@@ -21,7 +21,9 @@ setup(
     author_email='lzyong2019@gmail.com',
     include_package_data=True,
     install_requires=[
-        'Flask'
+        'Flask>=2',
+        'wtforms',
+        'flask_wtf'
     ],
     classifiers=[
         'Environment :: Web Environment',
@@ -31,6 +33,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',

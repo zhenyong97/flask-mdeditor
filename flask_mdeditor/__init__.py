@@ -5,8 +5,9 @@
     :copyright: (c) 2020 by Zisc Li
     :license: MIT, see LICENSE for more details.
 """
-from flask import current_app, Markup, request, Blueprint, url_for, render_template_string, render_template, request
+from flask import current_app, request, Blueprint, url_for, render_template_string, render_template
 from flask import send_from_directory, jsonify
+from markupsafe import Markup
 import os
 from flask_mdeditor.utils import random_filename
 
@@ -48,7 +49,7 @@ class _MDEditor():
             'task_list': False,
             'flow_chart': True,
             'sequence': True,
-            'language': current_app.config.get("MDEDITOR_LANGUAGE",'zh'),  # zh / en
+            'language': current_app.config.get("MDEDITOR_LANGUAGE",'en'),  # zh / en
             'watch': True,  # Live preview
             'lineWrapping': current_app.config.get('MDEDITOR_WRAPPING','False'),  # lineWrapping
             'lineNumbers': False  # lineNumbers

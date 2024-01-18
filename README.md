@@ -2,8 +2,8 @@
 [![ENV](https://img.shields.io/badge/release-v0.1-blue.svg)](https://github.com/pylixm/django-mdeditor)
 [![ENV](https://img.shields.io/badge/pypi-v0.1-blue.svg)](https://pypi.org/project/Flask-MDEditor/)
 [![ENV](https://img.shields.io/badge/中文-v0.1-blue.svg)](./README_CN.md)
-[![ENV](https://img.shields.io/badge/python-3.7x-green.svg)]()
-[![ENV](https://img.shields.io/badge/flask-1.0+-green.svg)]()
+[![ENV](https://img.shields.io/badge/python-3.7+-green.svg)]()
+[![ENV](https://img.shields.io/badge/flask-2.0+-green.svg)]()
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 ![](./flask_and_mdeditor.png)
@@ -97,7 +97,7 @@ The more configuration options available are listed below:
 |MDEDITOR_THEME|default|editor main theme|×|dark / default|
 |MDEDITOR_PREVIEW_THEME|default|preview area theme|×| default / dark
 |MDEDITOR_EDITOR_THEME|default|edit area theme|×| pastel-on-dark / default
-|MDEDITOR_LANGUAGE|zh|editor language|×|zh / en
+|MDEDITOR_LANGUAGE|en|editor language|×|zh / en
 
 ## TODO
 * Unit Testing
