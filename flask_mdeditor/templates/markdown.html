@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ url_for('mdeditor.static', filename='mdeditor/css/editormd.css', _external=True) }}">
+<link rel="stylesheet" href="{{ url_for('mdeditor.static', filename='mdeditor/css/editormd.css') }}">
 <style type="text/css">
     .wmd-wrapper  ul {
         margin-left: 0px !important;
@@ -38,8 +38,8 @@
   <textarea {{ final_attrs|safe }}>{{ value }}</textarea>
 </div>
 
-<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/jquery.min.js', _external=True) }}"></script>
-<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/editormd.min.js', _external=True) }}"></script>
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('mdeditor.static', filename='mdeditor/js/editormd.min.js') }}"></script>
 {% if mdeditor_config.language == 'en' %}
 <script src="{{ url_for('mdeditor.static', filename='mdeditor/languages/en.js') }}"></script>
 {% elif mdeditor_config.language == 'de' %}
